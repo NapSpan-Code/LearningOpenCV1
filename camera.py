@@ -15,8 +15,11 @@ def changeRes(width, height):
 #Reading Videos
 capture = cv.VideoCapture(0)
 
+
 while True:
     isTrue, frame = capture.read()
+    cv.putText(frame, 'Jorge Crespo Sueiro, Puto Amo', (0,400), cv.FONT_HERSHEY_TRIPLEX, 1.0, (255,255,255), thickness=1)
+
 
     frameResized = rescaleFrame(frame, scale=0.5)
 
