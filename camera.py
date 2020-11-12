@@ -18,7 +18,7 @@ capture = cv.VideoCapture(0)
 
 while True:
     isTrue, frame = capture.read()
-    cv.putText(frame, 'Jorge Crespo Sueiro, Puto Amo', (0,400), cv.FONT_HERSHEY_TRIPLEX, 1.0, (255,255,255), thickness=1)
+    cv.putText(frame, 'Hello World', (0,400), cv.FONT_HERSHEY_TRIPLEX, 1.0, (255,255,255), thickness=1)
 
 
     frameResized = rescaleFrame(frame, scale=0.5)
@@ -26,13 +26,12 @@ while True:
     cv.imshow('Video',frame)
     cv.imshow('VideoResized',frameResized)
 
-    #EdgeCascade
-    canny=cv.Canny(frame, 150, 150)
+    #Let's find the contour
+    gray = cv.cvtColor(frame,cv.COLOR_BGR2GRAY)
+    blurred = cv.GaussianBlur(gray, (3,3), cv.BORDER_DEFAULT)
+    cv.imshow('blurred', blurred)
+    canny = cv.Canny(blurred, 50, 150)
     cv.imshow('canny', canny)
-
-    #flipped
-    flipped = cv.flip(frameResized, 1)
-    cv.imshow('flipped', flipped)
 
     if cv.waitKey(20) & 0xFF==ord('d'):
         break
