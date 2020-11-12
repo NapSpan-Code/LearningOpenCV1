@@ -26,6 +26,10 @@ while True:
     cv.imshow('Video',frame)
     cv.imshow('VideoResized',frameResized)
 
+    #EdgeCascade
+    canny=cv.Canny(frame, 150, 150)
+    cv.imshow('canny', canny)
+
     if cv.waitKey(20) & 0xFF==ord('d'):
         break
 
