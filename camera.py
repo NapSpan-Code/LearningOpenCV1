@@ -30,6 +30,10 @@ while True:
     canny=cv.Canny(frame, 150, 150)
     cv.imshow('canny', canny)
 
+    #flipped
+    flipped = cv.flip(frameResized, 1)
+    cv.imshow('flipped', flipped)
+
     if cv.waitKey(20) & 0xFF==ord('d'):
         break
 
