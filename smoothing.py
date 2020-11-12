@@ -10,7 +10,7 @@ def rescaleFrame(frame, scale=0.75):
 
 init = cv.imread('imagen/wppstalkerlarge.jpg')
 img = rescaleFrame(init, 0.3)
-cv.imshow('gato', img)
+cv.imshow('stalker', img)
 
 #Averaging blur
 average = cv.blur(img, (3,3))
